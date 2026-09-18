@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel Simpson's Graduation with Leadership Distinction research portfolio.">
+  <title>Daniel Simpson — Research Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2373000a'/%3E%3Cpath d='M16 40c8-22 24-22 32 0M20 28h24M24 20h16' fill='none' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --garnet: #73000a;
+      --garnet-deep: #4d0007;
+      --ink: #172027;
+      --muted: #5d6770;
+      --line: #dfe3e6;
+      --soft: #f4f6f7;
+      --white: #ffffff;
+      --gold: #bd8b13;
+      --max: 1160px;
+      --shadow: 0 18px 50px rgba(23, 32, 39, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    button { font: inherit; }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      background: rgba(77, 0, 7, .96);
+      color: var(--white);
+      backdrop-filter: blur(14px);
+    }
+    .nav-wrap {
+      width: min(var(--max), calc(100% - 40px));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+    .brand-text { font-weight: 750; letter-spacing: .01em; }
+    .brand-text small { display: block; color: rgba(255,255,255,.68); font-size: .72rem; font-weight: 550; letter-spacing: .08em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      padding: 9px 11px;
+      border-radius: 6px;
+      color: rgba(255,255,255,.78);
+      font-size: .88rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+    .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,.12); color: var(--white); }
+    .menu-button { display: none; border: 0; background: transparent; color: white; padding: 8px; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 82% 25%, rgba(189,139,19,.24), transparent 26%),
+        linear-gradient(125deg, var(--garnet-deep), var(--garnet));
+    }
+    .hero::after {
+      content: "RESEARCH";
+      position: absolute;
+      right: -28px;
+      bottom: -62px;
+      color: rgba(255,255,255,.055);
+      font-size: clamp(6rem, 17vw, 15rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -.07em;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 40px));
+      min-height: 480px;
+      margin: 0 auto;
+      padding: 76px 0 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+      align-items: center;
+      gap: 72px;
+    }
+    .eyebrow { margin: 0 0 14px; color: #f2ce76; font-size: .8rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .class-line { margin: -5px 0 18px; color: rgba(255,255,255,.72); font-size: .84rem; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; }
+    h1, h2, h3 { line-height: 1.13; }
+    h1 { max-width: 780px; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(3.3rem, 7vw, 6.2rem); font-weight: 500; letter-spacing: -.055em; }
+    .hero-copy { max-width: 650px; margin: 24px 0 0; color: rgba(255,255,255,.78); font-size: 1.08rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 30px; }
+    .hero-meta span { border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: 7px 12px; color: rgba(255,255,255,.9); font-size: .82rem; }
+    .portrait {
+      width: min(100%, 330px);
+      aspect-ratio: 4 / 5;
+      justify-self: end;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.04));
+      box-shadow: 0 28px 60px rgba(0,0,0,.22);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 28px;
+    }
+    .portrait strong { display: block; font-family: Georgia, serif; font-size: 3.4rem; font-weight: 500; }
+    .portrait span { display: block; margin-top: 8px; color: rgba(255,255,255,.65); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    .page-shell { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .portfolio-section { padding: 92px 0; scroll-margin-top: 68px; }
+    .portfolio-section + .portfolio-section { border-top: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 34px; margin-bottom: 42px; }
+    .section-number { color: var(--garnet); font-size: .78rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+    .section-head h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.3rem, 5vw, 4.2rem); font-weight: 500; letter-spacing: -.04em; }
+    .section-intro { max-width: 760px; margin: 14px 0 0; color: var(--muted); font-size: 1.05rem; }
+
+    .about-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 34px; }
+    .panel { border: 1px solid var(--line); border-radius: 14px; background: var(--white); padding: 28px; }
+    .panel.soft { background: var(--soft); border-color: transparent; }
+    .panel h3 { margin: 0 0 14px; font-size: 1.08rem; }
+    .placeholder { color: var(--muted); }
+    .placeholder strong { color: var(--ink); }
+    .quick-facts { list-style: none; margin: 0; padding: 0; }
+    .quick-facts li { padding: 13px 0; border-bottom: 1px solid var(--line); }
+    .quick-facts li:last-child { border: 0; }
+    .quick-facts span { display: block; color: var(--garnet); font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+
+    .insight-banner {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 22px;
+      align-items: start;
+      padding: 28px;
+      border-left: 5px solid var(--garnet);
+      background: var(--soft);
+      border-radius: 0 14px 14px 0;
+      margin-bottom: 30px;
+    }
+    .insight-index { width: 54px; height: 54px; border-radius: 50%; background: var(--garnet); color: white; display: grid; place-items: center; font-family: Georgia, serif; font-size: 1.45rem; }
+    .insight-banner h3 { margin: 0 0 8px; font-family: Georgia, serif; font-size: 1.55rem; font-weight: 500; }
+    .insight-banner p { margin: 0; color: var(--muted); }
+    .connection-grid { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: stretch; gap: 18px; }
+    .experience-card { min-height: 220px; border: 1px solid var(--line); border-radius: 14px; padding: 26px; }
+    .experience-card .label { color: var(--garnet); font-size: .75rem; font-weight: 850; letter-spacing: .11em; text-transform: uppercase; }
+    .experience-card h3 { margin: 10px 0 12px; font-size: 1.18rem; }
+    .connector { display: grid; place-items: center; color: var(--garnet); font-size: 1.6rem; }
+    .reflection { margin-top: 28px; display: grid; grid-template-columns: 1fr; gap: 22px; }
+    .artifact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
+    .artifact {
+      min-height: 180px;
+      border: 1px dashed #aeb6bc;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #fafbfb, #f1f3f4);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .artifact-tag { align-self: flex-start; border-radius: 999px; background: var(--white); padding: 6px 10px; color: var(--garnet); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .artifact h3 { margin: 30px 0 4px; font-size: 1.02rem; }
+    .artifact p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .leadership-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 28px; }
+    .stakeholders { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .stakeholders span { border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; font-size: .82rem; }
+    .steps { counter-reset: plan; display: grid; gap: 14px; }
+    .step { counter-increment: plan; position: relative; border: 1px solid var(--line); border-radius: 12px; padding: 20px 20px 20px 64px; }
+    .step::before { content: counter(plan); position: absolute; left: 18px; top: 18px; width: 30px; height: 30px; border-radius: 50%; background: var(--garnet); color: white; display: grid; place-items: center; font-weight: 800; }
+    .step h3 { margin: 0 0 5px; font-size: 1rem; }
+    .step p { margin: 0; color: var(--muted); font-size: .92rem; }
+    .evaluation { margin-top: 28px; border-top: 4px solid var(--gold); }
+
+    footer { background: var(--ink); color: rgba(255,255,255,.74); }
+    .footer-inner { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; padding: 38px 0; display: flex; justify-content: space-between; gap: 20px; }
+    .footer-inner strong { color: white; }
+    .footer-link { color: var(--gold); font-weight: 750; text-underline-offset: 4px; }
+    .footer-link:hover, .footer-link:focus-visible { color: white; }
+
+    @media (max-width: 850px) {
+      .menu-button { display: block; }
+      .nav-links { display: none; position: absolute; left: 0; right: 0; top: 68px; padding: 14px 20px 20px; background: var(--garnet-deep); flex-direction: column; align-items: stretch; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px; }
+      .hero-inner { grid-template-columns: 1fr; min-height: auto; gap: 38px; }
+      .portrait { justify-self: start; width: 230px; aspect-ratio: 1; }
+      .section-head { grid-template-columns: 1fr; gap: 8px; }
+      .about-grid, .leadership-grid, .reflection { grid-template-columns: 1fr; }
+      .connection-grid { grid-template-columns: 1fr; }
+      .connector { transform: rotate(90deg); min-height: 36px; }
+    }
+    @media (max-width: 580px) {
+      .nav-wrap, .hero-inner, .page-shell, .footer-inner { width: min(100% - 28px, var(--max)); }
+      .hero-inner { padding: 54px 0; }
+      h1 { font-size: 3.15rem; }
+      .portfolio-section { padding: 66px 0; }
+      .artifact-row { grid-template-columns: 1fr; }
+      .insight-banner { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav-wrap" aria-label="Portfolio navigation">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">DS</span>
+        <span class="brand-text">Daniel Simpson<small>ePortfolio — GLD Research</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation">Menu</button>
+      <div class="nav-links" id="site-menu">
+        <a href="#about">About Me</a>
+        <a href="#insight-1">Key Insight 1</a>
+        <a href="#insight-2">Key Insight 2</a>
+        <a href="#insight-3">Key Insight 3</a>
+        <a href="#leadership">Leadership</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Graduation with Leadership Distinction in Research</p>
+          <p class="class-line">Class of 2027 · The University of South Carolina</p>
+          <h1 id="hero-title">My Pillars of Leadership: Curiosity, Communication, Creativity</h1>
+          <p class="hero-copy">A portfolio connecting coursework, laboratory research, teaching, and extracurriculars to my development as a leader and researcher.</p>
+          <div class="hero-meta" aria-label="Academic information">
+            <span>Biochemistry &amp; Molecular Biology, B.S.</span>
+            <span>Data Science Minor</span>
+            <span>Undergraduate Research</span>
+          </div>
+        </div>
+        <div class="portrait" aria-label="Profile photo placeholder">
+          <div><strong>DS</strong><span>Add your profile photograph</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-shell">
+      <section class="portfolio-section" id="about">
+        <div class="section-head">
+          <div class="section-number">Introduction</div>
+          <div>
+            <h2>About Me</h2>
+            <p class="section-intro">Introduce who you are, where your scientific interests began, and the purpose that connects the experiences presented throughout this portfolio.</p>
+          </div>
+        </div>
+        <div class="about-grid">
+          <article class="panel placeholder">
+            <h3>Your story</h3>
+            <p><strong>[Replace with your introduction.]</strong> Explain what makes your perspective distinctive—not only what you study, but why you chose the Research pathway and how your experiences shaped your direction.</p>
+            <p>Conclude with a short map of the portfolio: identify the three major lessons your Key Insights will demonstrate and how they connect to your future goals.</p>
+          </article>
+          <aside class="panel soft">
+            <h3>At a glance</h3>
+            <ul class="quick-facts">
+              <li><span>Name</span>Daniel Simpson</li>
+              <li><span>GLD pathway</span>Research</li>
+              <li><span>Major</span>Biochemistry &amp; Molecular Biology</li>
+              <li><span>Minor</span>Data Science</li>
+              <li><span>Future goal</span>Doctoral training in biomedical research</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="portfolio-section" id="insight-1">
+        <div class="section-head">
+          <div class="section-number">Key Insight 1</div>
+          <div>
+            <h2>Fostering Curiosity</h2>
+            <p class="section-intro">State a lesson that changed how you think or work. Phrase it as a transferable insight—not simply the name of an experience.</p>
+          </div>
+        </div>
+        <div class="insight-banner">
+          <div class="insight-index">1</div>
+          <div><p>[In one or two sentences, explain the major learning and the change it produced in your scientific or professional practice.]</p></div>
+        </div>
+        <div class="connection-grid">
+          <article class="experience-card placeholder"><span class="label">Within the classroom</span><p>Describe the academic idea accurately. Explain why it mattered and what questions it raised for you.</p></article>
+          <div class="connector" aria-hidden="true">↔</div>
+          <article class="experience-card placeholder"><span class="label">Beyond the classroom</span><p>Describe the moment when you applied, challenged, or deepened the classroom concept.</p></article>
+        </div>
+        <div class="reflection">
+          <article class="panel placeholder"><p>[Explain how the two experiences informed one another. Explore similarities, tensions, context, and alternative perspectives.]</p></article>
+        </div>
+        <div class="artifact-row">
+          <article class="artifact"><span class="artifact-tag">WTC artifact</span><div><h3>[Artifact title]</h3><p>Upload or link the item, then explain what specific section demonstrates your learning.</p></div></article>
+          <article class="artifact"><span class="artifact-tag">BTC artifact</span><div><h3>[Artifact title]</h3><p>Upload or link the item, then explain its significance and relationship to the first artifact.</p></div></article>
+        </div>
+      </section>
+
+      <section class="portfolio-section" id="insight-2">
+        <div class="section-head">
+          <div class="section-number">Key Insight 2</div>
+          <div><h2>Teaching to Learn</h2><p class="section-intro">Use a second pair of classroom and experiential perspectives to show another meaningful change in how you approach research, communication, or collaboration.</p></div>
+        </div>
+        <div class="insight-banner">
+          <div class="insight-index">2</div>
+          <div><p>[State the learning clearly, then preview why it matters in a larger scientific, professional, or social context.]</p></div>
+        </div>
+        <div class="connection-grid">
+          <article class="experience-card placeholder"><span class="label">Within the classroom</span><p>Move beyond summary: identify the principle that became meaningful through application.</p></article>
+          <div class="connector" aria-hidden="true">↔</div>
+          <article class="experience-card placeholder"><span class="label">Beyond the classroom</span><p>Show what happened and how the context affected your understanding of the academic concept.</p></article>
+        </div>
+        <div class="reflection">
+          <article class="panel placeholder"><p>[Analyze how multiple experiences or perspectives fit together. Include complications or contradictions where relevant.]</p></article>
+        </div>
+        <div class="artifact-row">
+          <article class="artifact"><span class="artifact-tag">WTC artifact</span><div><h3>[Artifact title]</h3><p>Connect a paper, project, analysis, or presentation directly to your insight.</p></div></article>
+          <article class="artifact"><span class="artifact-tag">BTC artifact</span><div><h3>[Artifact title]</h3><p>Use a substantive product you created; include a caption explaining why it is evidence.</p></div></article>
+        </div>
+      </section>
+
+      <section class="portfolio-section" id="insight-3">
+        <div class="section-head">
+          <div class="section-number">Key Insight 3</div>
+          <div><h2>Channeling Creativity</h2><p class="section-intro">Complete the portfolio’s learning arc with an insight that complements—not repeats—the first two.</p></div>
+        </div>
+        <div class="insight-banner">
+          <div class="insight-index">3</div>
+          <div><p>[Articulate the lesson, its significance, and the new perspective it gave you.]</p></div>
+        </div>
+        <div class="connection-grid">
+          <article class="experience-card placeholder"><span class="label">Within the classroom</span><p>Identify a framework specific enough to demonstrate genuine academic learning.</p></article>
+          <div class="connector" aria-hidden="true">↔</div>
+          <article class="experience-card placeholder"><span class="label">Beyond the classroom</span><p>Describe the experience selectively, emphasizing evidence that supports your insight.</p></article>
+        </div>
+        <div class="reflection">
+          <article class="panel placeholder"><p>[Examine why the connection matters and how the insight might change in another discipline, setting, or perspective.]</p></article>
+        </div>
+        <div class="artifact-row">
+          <article class="artifact"><span class="artifact-tag">WTC artifact</span><div><h3>[Artifact title]</h3><p>Identify the exact excerpt or component a reviewer should examine.</p></div></article>
+          <article class="artifact"><span class="artifact-tag">BTC artifact</span><div><h3>[Artifact title]</h3><p>Explain how the artifact complements the classroom evidence rather than duplicating it.</p></div></article>
+        </div>
+      </section>
+
+      <section class="portfolio-section" id="leadership">
+        <div class="section-head">
+          <div class="section-number">Leadership</div>
+          <div><h2>Application of Data Tools in Research</h2><p class="section-intro">Use your Key Insights to propose a realistic, evidence-based response to a specific scientific or societal problem that matters to others.</p></div>
+        </div>
+        <div class="leadership-grid">
+          <div>
+            <article class="panel placeholder">
+              <p>Define a problem narrow enough to address. Provide context, identify contributing factors, and represent more than one stakeholder perspective.</p>
+              <div class="stakeholders" aria-label="Stakeholder placeholders"><span>[Stakeholder 1]</span><span>[Stakeholder 2]</span><span>[Stakeholder 3]</span></div>
+            </article>
+            <article class="panel soft placeholder" style="margin-top:22px">
+              <h3>Recommendation and rationale</h3>
+              <p>[Describe your proposed solution and explain why it should work. Explicitly connect decisions to learning from your Key Insights, including both WTC and BTC experiences.]</p>
+            </article>
+          </div>
+          <div>
+            <h3 style="margin-top:0">Implementation plan</h3>
+            <div class="steps">
+              <article class="step placeholder"><h3>[Define and research]</h3><p>What must be understood first, who is responsible, and why is this step necessary?</p></article>
+              <article class="step placeholder"><h3>[Consult stakeholders]</h3><p>How will affected groups shape priorities and the proposed response?</p></article>
+              <article class="step placeholder"><h3>[Develop and pilot]</h3><p>What will you create or change, where will it begin, and on what timeline?</p></article>
+              <article class="step placeholder"><h3>[Implement]</h3><p>Identify responsibilities, resources, communication, and foreseeable barriers.</p></article>
+              <article class="step placeholder"><h3>[Evaluate and revise]</h3><p>Describe the evidence you will collect and how findings will inform the next iteration.</p></article>
+            </div>
+          </div>
+        </div>
+        <article class="panel evaluation placeholder">
+          <h3>Measures of success</h3>
+          <p><strong>[Define specific criteria.]</strong> Identify quantitative and qualitative evidence, who will provide input, when evaluation will occur, and what you hope to learn.</p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div><strong>Daniel Simpson — Class of 2027</strong><br>Graduation with Leadership Distinction in Research</div>
+      <div><a class="footer-link" href="https://www.linkedin.com/in/danielsimpson29" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const button = document.querySelector('.menu-button');
+    const menu = document.querySelector('.nav-links');
+    button.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      button.setAttribute('aria-expanded', String(open));
+      button.textContent = open ? 'Close' : 'Menu';
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => {
+      menu.classList.remove('open');
+      button.setAttribute('aria-expanded', 'false');
+      button.textContent = 'Menu';
+    }));
+    const links = [...document.querySelectorAll('.nav-links a')];
+    const sections = links.map(link => document.querySelector(link.getAttribute('href')));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
